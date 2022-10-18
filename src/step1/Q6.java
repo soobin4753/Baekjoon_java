@@ -1,7 +1,3 @@
-
-
-
-
 package step1;
 
 import java.util.Scanner;

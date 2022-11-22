@@ -1,25 +1,31 @@
 package step4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Q5 {
 
 	public static void main(String[] args) {
-	// 대학 M교수님은 프로그래밍 수업을 맡고 있다. 교실엔 학생이 30명이 있는데, 학생 명부엔 각 학생별로 1번부터 30번까지 출석번호가 붙어 있다.
-	// 교수님이 내준 특별과제를 28명이 제출했는데, 그 중에서 제출 안 한 학생 2명의 출석번호를 구하는 프로그램을 작성하시오.
-		Scanner sc = new Scanner(System.in);
-		int[] student = new int[31];
-		
-		for(int i = 1; i < 29; i++) {
-			int jechul = sc.nextInt();
-			student[jechul] = 1;
-		}
-		
-		for(int i = 1; i < student.length; i++) {
-			if(student[i] != 1) {
-				System.out.println(i);
-			}
-		}
+	// 세준이는 기말고사를 망쳤다. 세준이는 점수를 조작해서 집에 가져가기로 했다. 일단 세준이는 자기 점수 중에 최댓값을 골랐다. 이 값을 M이라고 한다. 
+	// 그리고 나서 모든 점수를 점수/M*100으로 고쳤다.
+	// 예를 들어, 세준이의 최고점이 70이고, 수학점수가 50이었으면 수학점수는 50/70*100이 되어 71.43점이 된다.
+	// 세준이의 성적을 위의 방법대로 새로 계산했을 때, 새로운 평균을 구하는 프로그램을 작성하시오.
+	Scanner sc = new Scanner(System.in);
+	double arr[] = new double[sc.nextInt()];
+	
+	for(int i = 0; i < arr.length; i++) {
+		arr[i] = sc.nextDouble();
+	}
+	sc.close();
+	
+	double sum = 0;
+	Arrays.sort(arr);
+	
+	for(int i = 0; i < arr.length; i++) {
+		sum += ((arr[i] / arr[arr.length-1]) * 100);
+	}
+	System.out.print(sum / arr.length);
+	
 	}
 
 }
